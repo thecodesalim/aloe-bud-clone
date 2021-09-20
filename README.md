@@ -1,4 +1,4 @@
-# buddy
+# Aloe Bud Clone App
 
 ## Project setup
 ```

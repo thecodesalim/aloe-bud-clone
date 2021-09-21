@@ -1,43 +1,43 @@
 <template>
   <Header></Header>
-  <div class='items'>
+  <div class="items">
     <Item title="BREATHE" time="last week"></Item>
     <Item title="BREATHE" time="last week"></Item>
     <Item title="BREATHE" time="last week"></Item>
     <Item title="BREATHE" time="last week"></Item>
-
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Item from './components/Item.vue'
+import Header from "./components/Header.vue";
+import Item from "./components/Item.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    Item
-  }
-}
+    Item,
+  },
+};
 </script>
 
 <style>
-html, body {
+html,
+body {
   background-color: #74c9c8;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   margin: 0;
 }
-#app { 
+#app {
   font-family: monospace;
   padding: 0px;
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 .items {
-  display: grid; 
+  display: grid;
   grid-template-columns: repeat(4, 0.2fr);
   grid-auto-flow: row;
 }

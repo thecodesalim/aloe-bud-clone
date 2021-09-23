@@ -1,8 +1,11 @@
 <template>
   <div class="card">
     <div class="content" @click="toggleType">
-      <span>Hydrate</span>
-      <span>drop</span>
+      <div class="holder">
+        <span>Hydrate</span>
+        <span>drop</span>
+      </div>
+      <span class="line"></span>
     </div>
     <div class="type" v-if="show">
       <div class="icons">
@@ -22,7 +25,9 @@
         Similar to flowers and plants, water helps us grow. Have you watered
         yourself today?
       </p>
-      <button class="btn-activity">SET ACTIVITY</button>
+      <button class="btn-activity" @click="$emit('open-activity-card')">
+        SET ACTIVITY
+      </button>
     </div>
   </div>
 </template>
@@ -40,10 +45,16 @@ export default {
       this.show = !this.show;
     },
   },
+  emits: ["open-activity-card"],
 };
 </script>
 <style scoped>
 .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.holder {
   display: flex;
   justify-content: space-between;
   margin-left: 10px;
@@ -53,7 +64,7 @@ export default {
 .type {
   display: flex;
   flex-direction: column;
-  background-color: #47a3a2;
+  background-color: #45b3af;
 }
 
 .icons {
@@ -66,7 +77,7 @@ export default {
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #225554;
+  background-color: #47a3a2;
 }
 
 .btn-switch {
@@ -92,5 +103,14 @@ export default {
   font-style: italic;
   border-radius: 5px;
   margin-bottom: 30px;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(226, 226, 226);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
 </style>

@@ -38,7 +38,7 @@ body {
 
 .items {
   display: grid;
-  grid-template-columns: repeat(4, 0.2fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: row;
 }
 </style>

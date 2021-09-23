@@ -1,4 +1,5 @@
 <template>
+  <activity-card v-if="activitycard"></activity-card>
   <div class="activity">
     <div class="header">
       <span @click="$emit('back')">back</span>
@@ -7,17 +8,30 @@
     </div>
     <span class="title">CHOOSE YOUR ACTIVITY</span>
     <span class="line"></span>
-    <ActivityItem></ActivityItem>
+    <ActivityItem @open-activity-card="toggleActivityCard"></ActivityItem>
     <ActivityItem></ActivityItem>
     <ActivityItem></ActivityItem>
   </div>
 </template>
 <script>
 import ActivityItem from "./ActivityItem.vue";
+import ActivityCard from "./AcivityCard.vue";
 export default {
   name: "Activity",
+  data() {
+    return {
+      activitycard: false,
+    };
+  },
   components: {
     ActivityItem,
+    ActivityCard,
+  },
+  methods: {
+    toggleActivityCard() {
+      console.log("activity-card");
+      this.activitycard = !this.activitycard;
+    },
   },
 };
 </script>
@@ -52,7 +66,7 @@ export default {
 .line {
   height: 1px;
   width: 100%;
-  background-color: rgb(189, 189, 189);
+  background-color: rgb(226, 226, 226);
   margin-top: 10px;
   margin-bottom: 10px;
 }

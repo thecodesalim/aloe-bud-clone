@@ -1,10 +1,13 @@
 <template>
   <Header></Header>
   <div class="items">
-    <Item title="BREATHE" time="last week"></Item>
-    <Item title="BREATHE" time="last week"></Item>
-    <Item title="BREATHE" time="last week"></Item>
-    <Item title="BREATHE" time="last week"></Item>
+    <item
+      v-for="item in activities"
+      v-bind:activity="item.activity"
+      v-bind:time="item.time"
+      v-bind:icon="item.icon"
+      v-bind:key="item.id"
+    ></item>
   </div>
 </template>
 
@@ -17,6 +20,39 @@ export default {
   components: {
     Header,
     Item,
+  },
+  data() {
+    return {
+      activities: [],
+    };
+  },
+  created() {
+    this.activities = [
+      {
+        id: 1,
+        activity: "HYDRATE",
+        time: "a while ago",
+        text:
+          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
+        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
+      },
+      {
+        id: 2,
+        activity: "MOVE",
+        time: "this week",
+        text:
+          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
+        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
+      },
+      {
+        id: 3,
+        activity: "MOTIVATE",
+        time: "never",
+        text:
+          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
+        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
+      },
+    ];
   },
 };
 </script>

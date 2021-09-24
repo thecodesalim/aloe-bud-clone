@@ -15,7 +15,7 @@
 </template>
 <script>
 import ActivityItem from "./ActivityItem.vue";
-import ActivityCard from "./AcivityCard.vue";
+import ActivityCard from "./ActivityCard.vue";
 export default {
   name: "Activity",
   data() {

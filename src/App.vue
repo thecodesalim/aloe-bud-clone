@@ -52,6 +52,14 @@ export default {
           "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
         icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
       },
+      {
+        id: 3,
+        activity: "MOTIVATE",
+        time: "never",
+        text:
+          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
+        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
+      },
     ];
   },
 };

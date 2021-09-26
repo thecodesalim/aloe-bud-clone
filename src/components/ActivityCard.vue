@@ -4,7 +4,7 @@
     <div class="pick-activity">
       <div class="activity-container">
         <div class="icon"></div>
-        <span class="activity-name">HYDRATE</span>
+        <span class="activity-name">{{ activity }}</span>
       </div>
       <span class="next">next</span>
     </div>
@@ -29,6 +29,9 @@
 import MiniHeader from "./MiniHeader.vue";
 export default {
   name: "ActivityCard",
+  props: {
+    activity: String,
+  },
   components: {
     MiniHeader,
   },

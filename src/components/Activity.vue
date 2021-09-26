@@ -8,9 +8,9 @@
     </div>
     <span class="title">CHOOSE YOUR ACTIVITY</span>
     <span class="line"></span>
-    <ActivityItem @open-activity-card="toggleActivityCard"></ActivityItem>
-    <ActivityItem></ActivityItem>
-    <ActivityItem></ActivityItem>
+    <ActivityItem @open-activity-card="toggleActivityCard" activity="Hydrate">
+    </ActivityItem>
+    <ActivityItem activity="Breathe"></ActivityItem>
   </div>
 </template>
 <script>
@@ -18,14 +18,14 @@ import ActivityItem from "./ActivityItem.vue";
 import ActivityCard from "./ActivityCard.vue";
 export default {
   name: "Activity",
+  components: {
+    ActivityItem,
+    ActivityCard,
+  },
   data() {
     return {
       activitycard: false,
     };
-  },
-  components: {
-    ActivityItem,
-    ActivityCard,
   },
   methods: {
     toggleActivityCard() {

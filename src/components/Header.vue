@@ -14,18 +14,18 @@ import Activity from "./Activity.vue";
 
 export default {
   name: "Header",
-  data() {
-    return {
-      recents: false,
-      activity: false,
-    };
-  },
   components: {
     Recents,
     Activity,
   },
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      recents: false,
+      activity: false,
+    };
   },
   methods: {
     toggleRecents() {

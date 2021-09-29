@@ -33,6 +33,7 @@ export default {
       this.activitycard = !this.activitycard;
     },
   },
+  emits: ["back"],
 };
 </script>
 <style scoped>
@@ -50,6 +51,8 @@ export default {
   display: flex;
   justify-content: space-between;
   color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .heading {

@@ -49,6 +49,8 @@
   </div>
 </template>
 <script>
+import { ref } from "vue";
+import { useMainStore } from "../store/main";
 import Icon from "./Icon.vue";
 import ActivityCard from "./ActivityCard.vue";
 export default {
@@ -57,47 +59,44 @@ export default {
     Icon,
     ActivityCard,
   },
+
   props: {
     activity: String,
   },
-  data() {
-    return {
-      show: false,
-      index: null,
-      text: null,
-      activitycard: false,
-      activity_type: null,
-    };
-  },
-  created() {
-    this.types = {
-      Hydrate: [
-        "Similar to flowers and plants, water helps us grow. Habe you watered yourself today?",
-        "Cacti are more hydrated than the soil they grow in. Absorb tiny sponges!",
-        "Water is essential to all living organisms on earth. Even you, tiny human.",
-      ],
-      Breathe: [
-        "Breathe in for 4, hold for 4 and exhale for 4. This too shall pass.",
-        "Just breathe. Become aware of any tension in your body. Now unclench your jaw, relax your shoulders and let them drop slowly ",
-        "Breathe in through your nose for 4 seconds, hold for 4 and release for 4. Repeat as needed",
-      ],
-    };
-  },
+  setup(props) {
+    const main = useMainStore();
+    const show = ref(false);
+    const index = ref(null);
+    const text = ref(null);
+    const activitycard = ref(false);
+    const activity_type = ref(null);
 
-  methods: {
-    toggleType() {
-      this.show = !this.show;
-    },
-    updateText(type, id) {
-      console.log(this.types);
-      this.index = id;
-      this.text = this.types[type][id];
-      this.activity_type = type;
-    },
-    toggle() {
-      console.log("pressed");
-      this.activitycard = !this.activitycard;
-    },
+    const toggleType = () => {
+      show.value = !show.value;
+    };
+
+    const updateText = (type, id) => {
+      index.value = id;
+      text.value = main.types[type][id];
+      activity_type.value = type;
+    };
+
+    const toggle = () => {
+      console.log("toggle");
+      activitycard.value = !activitycard.value;
+    };
+
+    return {
+      main,
+      show,
+      index,
+      text,
+      activitycard,
+      activity_type,
+      toggleType,
+      updateText,
+      toggle,
+    };
   },
   emits: ["open-activity-card"],
 };

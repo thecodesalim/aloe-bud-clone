@@ -1,25 +1,26 @@
 <template>
-    <div class="recents" >
-      <div class="header">
-        <span @click="$emit('back')">back</span>
-        <span class="title">Recents</span>
-        <span></span>
+  <div class="recents">
+    <div class="header">
+      <span @click="$emit('back')">back</span>
+      <span class="title">Recents</span>
+      <span></span>
     </div>
     <span class="date">Thu 16 Sept</span>
     <RecentItem></RecentItem>
     <RecentItem></RecentItem>
     <RecentItem></RecentItem>
-    </div>
+  </div>
 </template>
 
 <script>
-import RecentItem from "./RecentItem.vue"
+import RecentItem from "./RecentItem.vue";
 export default {
-   name: "Recents",
-   components: {
-       RecentItem
-    }
-}
+  name: "Recents",
+  components: {
+    RecentItem,
+  },
+  emits: ["back"],
+};
 </script>
 
 <style scoped>
@@ -34,20 +35,20 @@ export default {
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    color: blue;
+  display: flex;
+  justify-content: space-between;
+  color: blue;
 }
 
 .title {
-    font-style: italic;
-    text-decoration: underline;
+  font-style: italic;
+  text-decoration: underline;
 }
 .date {
-    align-self: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 10px;
-    color: blue;
+  align-self: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: blue;
 }
 </style>

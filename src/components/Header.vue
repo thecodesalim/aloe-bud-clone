@@ -46,5 +46,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 </style>

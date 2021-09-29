@@ -1,12 +1,17 @@
 <template>
   <div class="activity-card">
+    <div class="header">
+      <i class="fas fa-times"></i>
+      <span class="name">Activity card</span>
+      <i class="fas fa-check" @click="addActivity(activity)"></i>
+    </div>
     <mini-header title="ACTIVITY TYPE"></mini-header>
     <div class="pick-activity">
       <div class="activity-container">
         <div class="icon"></div>
         <span class="activity-name">{{ activity }}</span>
       </div>
-      <span class="next">next</span>
+      <span class="next"><i class="fas fa-greater-than"></i></span>
     </div>
     <span class="line"></span>
     <mini-header title="ROUTINE"></mini-header>
@@ -27,18 +32,45 @@
 
 <script>
 import MiniHeader from "./MiniHeader.vue";
+import { useMainStore } from "../store/main";
 export default {
   name: "ActivityCard",
+  components: {
+    MiniHeader,
+  },
   props: {
     activity: String,
   },
-  components: {
-    MiniHeader,
+  setup() {
+    const main = useMainStore();
+    console.log("first", main.length);
+    const addActivity = (activity) => {
+      main.add(
+        main.activities.filter((i) => i.activity === activity.toUpperCase())[0]
+      );
+      console.log("activities", main.activities);
+    };
+
+    return {
+      addActivity,
+    };
   },
 };
 </script>
 
 <style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: blue;
+}
+
+.name {
+  text-decoration: underline;
+  font-style: italic;
+}
 .activity-card {
   position: absolute;
   width: 100%;
@@ -77,6 +109,7 @@ export default {
 .next {
   margin-top: 15px;
   margin-right: 10px;
+  color: rgb(226, 226, 226);
 }
 
 .line {

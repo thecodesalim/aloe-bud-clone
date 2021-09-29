@@ -2,18 +2,33 @@
   <Header></Header>
   <div class="items">
     <item
-      v-for="item in activities"
+      v-for="item in main.activities"
       v-bind:activity="item.activity"
       v-bind:time="item.time"
       v-bind:icon="item.icon"
       v-bind:key="item.id"
     ></item>
+    <button
+      @click="
+        main.add({
+          id: 3,
+          activity: 'ERICA',
+          time: 'never',
+          text:
+            'Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.',
+          icon: 'https://img.icons8.com/fluency/48/000000/pixel-heart.png',
+        })
+      "
+    >
+      add
+    </button>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Item from "./components/Item.vue";
+import { useMainStore } from "./store/main";
 
 export default {
   name: "App",
@@ -21,46 +36,9 @@ export default {
     Header,
     Item,
   },
-  data() {
-    return {
-      activities: [],
-    };
-  },
-  created() {
-    this.activities = [
-      {
-        id: 1,
-        activity: "HYDRATE",
-        time: "a while ago",
-        text:
-          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
-        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
-      },
-      {
-        id: 2,
-        activity: "MOVE",
-        time: "this week",
-        text:
-          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
-        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
-      },
-      {
-        id: 3,
-        activity: "MOTIVATE",
-        time: "never",
-        text:
-          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
-        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
-      },
-      {
-        id: 3,
-        activity: "MOTIVATE",
-        time: "never",
-        text:
-          "Breathe in for 4, hold foor 4 and exhale for 4. This too shall pass.",
-        icon: "https://img.icons8.com/fluency/48/000000/pixel-heart.png",
-      },
-    ];
+  setup() {
+    const main = useMainStore();
+    return { main };
   },
 };
 </script>
